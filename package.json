@@ -1,0 +1,55 @@
+{
+  "name": "Soulmate4u",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "lint": "tslint -t codeFrame src/**/*.ts{,x} --fix",
+    "prettier": "prettier --write src/**/*",
+    "precommit": "lint-staged",
+    "remotedev": "remotedev --hostname=localhost --port 8082"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{ts,tsx}": [
+      "yarn lint",
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.3",
+    "react-native-navigation": "^1.1.428",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "tslib": "^1.9.0",
+    "typescript-fsa": "^2.5.0",
+    "typescript-fsa-reducers": "^0.4.5"
+  },
+  "devDependencies": {
+    "@types/react": "^16.1.0",
+    "@types/react-native": "^0.52.22",
+    "@types/react-native-navigation": "^1.1.5",
+    "@types/react-redux": "^5.0.15",
+    "@types/remote-redux-devtools": "^0.5.2",
+    "@types/prop-types": "^15.5.2",
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.2",
+    "prettier": "^1.11.1",
+    "react-native-typescript-transformer": "^1.2.3",
+    "remote-redux-devtools": "^0.5.12",
+    "remotedev-server": "^0.2.4",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
