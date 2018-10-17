@@ -4,53 +4,44 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Button
-} from 'react-native';
+import React, { Component } from 'react'
+import { Platform, StyleSheet, Text, View, Button } from 'react-native'
 
 const instructions = Platform.select({
   ios: 'FirstTabScreen',
   android: 'FirstTabScreen',
-});
+})
 
-type Props = {};
+type Props = {}
 export default class FirstTabScreen extends Component<Props> {
-
   constructor(props) {
-    super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    super(props)
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this))
   }
 
   onNavigatorEvent(event) {
     if (event.type === 'DeepLink') {
-      const parts = event.link.split('/');
-      const payload = event.payload; // (optional) The payload
+      const parts = event.link.split('/')
+      const payload = event.payload // (optional) The payload
 
       if (parts[0] === 'reset') {
         this.props.navigator.resetTo({
           label: 'Navigation',
           screen: parts[1],
-          title: payload.title
-        });
+          title: payload.title,
+        })
       }
     }
   }
 
-  componentWillMount() {
-
-  }
+  componentWillMount() {}
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Setting Page</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -72,6 +63,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   button: {
-    marginTop: 16
-  }
-});
+    marginTop: 16,
+  },
+})
